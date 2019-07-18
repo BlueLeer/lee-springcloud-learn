@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/helllo-eureka-hystrix-dashboard/helllo-eureka-hystrix-dashboard.iml" filepath="$PROJECT_DIR$/helllo-eureka-hystrix-dashboard/helllo-eureka-hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-service/hello-eureka-client-service.iml" filepath="$PROJECT_DIR$/hello-eureka-client-service/hello-eureka-client-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-feign/hello-eureka-client-service-consumer-feign.iml" filepath="$PROJECT_DIR$/hello-eureka-client-service-consumer-feign/hello-eureka-client-service-consumer-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-feign-hystrix/hello-eureka-client-service-consumer-feign-hystrix.iml" filepath="$PROJECT_DIR$/hello-eureka-client-service-consumer-feign-hystrix/hello-eureka-client-service-consumer-feign-hystrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon/hello-eureka-client-service-consumer-ribbon.iml" filepath="$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon/hello-eureka-client-service-consumer-ribbon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon-hystrix/hello-eureka-client-service-consumer-ribbon-hystrix.iml" filepath="$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon-hystrix/hello-eureka-client-service-consumer-ribbon-hystrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-client-zuul/hello-eureka-client-zuul.iml" filepath="$PROJECT_DIR$/hello-eureka-client-zuul/hello-eureka-client-zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-config/hello-eureka-config.iml" filepath="$PROJECT_DIR$/hello-eureka-config/hello-eureka-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-config-client/hello-eureka-config-client.iml" filepath="$PROJECT_DIR$/hello-eureka-config-client/hello-eureka-config-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-server/hello-eureka-server.iml" filepath="$PROJECT_DIR$/hello-eureka-server/hello-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-eureka-zipkin/hello-eureka-zipkin.iml" filepath="$PROJECT_DIR$/hello-eureka-zipkin/hello-eureka-zipkin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-spring-cloud-admin-client/hello-spring-cloud-admin-client.iml" filepath="$PROJECT_DIR$/hello-spring-cloud-admin-client/hello-spring-cloud-admin-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-spring-cloud-admin-server/hello-spring-cloud-admin-server.iml" filepath="$PROJECT_DIR$/hello-spring-cloud-admin-server/hello-spring-cloud-admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-springcloud-dependencies/hello-springcloud-dependencies.iml" filepath="$PROJECT_DIR$/hello-springcloud-dependencies/hello-springcloud-dependencies.iml" />
+    </modules>
+  </component>
+</project>

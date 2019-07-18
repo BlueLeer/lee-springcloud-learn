@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/hello-springcloud-dependencies/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-client-service/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service-consumer-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service-consumer-hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/helllo-eureka-hystrix-dashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-config/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-config-client/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-zipkin/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-eureka-client-service-consumer-feign-hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-spring-cloud-admin-server/pom.xml" />
+        <option value="$PROJECT_DIR$/hello-spring-cloud-admin-client/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

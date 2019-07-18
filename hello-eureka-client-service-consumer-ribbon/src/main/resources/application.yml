@@ -1,0 +1,14 @@
+server:
+  port: 8091
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: service-consumer
+  zipkin:
+    base-url: http://localhost:8075

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eureka-config
+  cloud:
+    config:
+      # 在git上配置
+      label: master # 指定分支
+      server:
+        git:
+          uri: git@github.com:BlueLeer/springcoud-config.git
+          search-paths: config-center
+          username: 251668577@qq.com
+          password: WANGlE5588
+
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

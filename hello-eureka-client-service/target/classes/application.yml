@@ -1,0 +1,12 @@
+server:
+  port: 7090
+spring:
+  application:
+    name: eureka-client-service
+  zipkin:
+    base-url: http://localhost:8075
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/ # 指定注册中心地址

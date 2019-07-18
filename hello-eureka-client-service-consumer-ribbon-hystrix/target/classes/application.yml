@@ -1,0 +1,10 @@
+server:
+  port: 8096
+
+spring:
+  application:
+    name: consumer-ribbon-hustrix
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

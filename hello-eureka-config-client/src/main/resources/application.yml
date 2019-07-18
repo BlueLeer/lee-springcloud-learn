@@ -1,0 +1,16 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: eureka-config-client
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: eureka-config
+      profile: hello-eureka-client-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

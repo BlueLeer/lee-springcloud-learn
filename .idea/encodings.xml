@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/helllo-eureka-hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-feign-hystrix" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-service-consumer-ribbon-hystrix" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-client-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-config-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-eureka-zipkin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-spring-cloud-admin-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-spring-cloud-admin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hello-springcloud-dependencies" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-client-zuul
+
+server:
+  port: 8098
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api/a/** # 说明:代表所有的/api/a/开头的所有的请求路径都进入到service-consumer这个服务当中去
+      serviceId: service-consumer
+    api-b:
+      path: /api/b/** # 说明:代表所有的/api/b/开头的所有的请求路径都进入到hello-eureka-service-consumer-feign这个服务当中去
+      serviceId: hello-eureka-service-consumer-feign

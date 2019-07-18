@@ -1,0 +1,16 @@
+server:
+  port: 8095
+
+spring:
+  application:
+    name: consumer-hystrix
+  zipkin:
+    base-url: http://localhost:8075
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+feign:
+  hystrix:
+    enabled: true # 开启熔断器

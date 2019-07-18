@@ -1,0 +1,12 @@
+server:
+  port: 8092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: hello-eureka-service-consumer-feign
+  zipkin:
+    base-url: http://localhost:8075

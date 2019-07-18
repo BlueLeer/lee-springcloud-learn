@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: eureka-server # 服务名
+  zipkin:
+    base-url: http://localhost:8075
+
+eureka:
+  client:
+    fetch-registry: false # 因为此时是单节点的服务注册与发现中心,所以这里不需要检索服务,所以设置为false
+    register-with-eureka: false # 不注册
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # 注册中心地址
+  server:
+    enable-self-preservation: false # 在本机调试很容易会出现心跳成功的比例低于85%,因此将自我保护机制去掉
+  instance:
+    hostname: localhost
+

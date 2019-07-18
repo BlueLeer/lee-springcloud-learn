@@ -1,0 +1,16 @@
+server:
+  port: 8097
+
+spring:
+  application:
+    name: hystrix-dashboard
+  zipkin:
+    base-url: http://localhost:8075
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+feign:
+  hystrix:
+    enabled: true

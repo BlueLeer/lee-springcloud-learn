@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="helllo-eureka-hystrix-dashboard" />
+        <module name="hello-eureka-client-service" />
+        <module name="hello-eureka-client-service-consumer-feign" />
+        <module name="hello-eureka-client-service-consumer-feign-hystrix" />
+        <module name="hello-eureka-client-service-consumer-ribbon" />
+        <module name="hello-eureka-client-service-consumer-ribbon-hystrix" />
+        <module name="hello-eureka-client-zuul" />
+        <module name="hello-eureka-config" />
+        <module name="hello-eureka-config-client" />
+        <module name="hello-eureka-server" />
+        <module name="hello-eureka-zipkin" />
+        <module name="hello-spring-cloud-admin-client" />
+        <module name="hello-spring-cloud-admin-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-client-service" target="1.8" />
+      <module name="helllo-eureka-hystrix-dashboard" target="1.8" />
+      <module name="hello-eureka-client-service" target="1.8" />
+      <module name="hello-eureka-client-service-consumer-feign" target="1.8" />
+      <module name="hello-eureka-client-service-consumer-feign-hystrix" target="1.8" />
+      <module name="hello-eureka-client-service-consumer-ribbon" target="1.8" />
+      <module name="hello-eureka-client-service-consumer-ribbon-hystrix" target="1.8" />
+      <module name="hello-eureka-client-zuul" target="1.8" />
+      <module name="hello-eureka-config" target="1.8" />
+      <module name="hello-eureka-config-client" target="1.8" />
+      <module name="hello-eureka-server" target="1.8" />
+      <module name="hello-eureka-zipkin" target="1.8" />
+      <module name="hello-spring-cloud-admin-client" target="1.8" />
+      <module name="hello-spring-cloud-admin-server" target="1.8" />
+      <module name="hello-springcloud-dependencies" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
