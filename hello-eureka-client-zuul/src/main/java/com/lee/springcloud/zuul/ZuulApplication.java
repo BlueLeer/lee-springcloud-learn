@@ -9,6 +9,12 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @author WangLe
  * @date 2019/7/18 10:01
  * @description 该服务只是作为路由转发和过滤用.路由是微服务的一部分.Zuul和Ribbon结合实现了负载均衡的作用
+ * 说明:@@EnableZuulProxy 和 @EnableZuulServer 的区别:
+ * EnableZuulServer注解是高配版本
+ * EnableZuulProxy注解是低配版本
+ * 如果不想让高版本多出的过滤器生效，可用低配版本注解
+ * 低配版本注解更适合自定义过滤器，因为经过的过滤器少，性能会比较高
+ *
  */
 @SpringBootApplication
 @EnableEurekaClient

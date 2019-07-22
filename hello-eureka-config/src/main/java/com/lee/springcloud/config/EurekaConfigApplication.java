@@ -12,7 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
  *
  * 例如:
- * http://localhost:8888/eureka-config/hello-eureka-client-service
+ * http://localhost:8888/hello-eureka-client-service
  */
 @SpringBootApplication
 @EnableEurekaClient
