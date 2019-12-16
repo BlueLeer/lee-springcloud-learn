@@ -7,6 +7,6 @@ SpringCloud的简单入门,项目包括:
 * Hystrix：熔断器
 * Hystrix-Dashboard：熔断器监控板
 * Zuul：API网关
-* Spring-Config：SpringCloud的注册中心
+* Spring-Config：SpringCloud的配置中心
 * Zipkin：分布式追踪系统
 * SpringBoot-Admin：SpringBoot模块监控
