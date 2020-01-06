@@ -10,3 +10,5 @@ eureka:
 spring:
   application:
     name: service-consumer
+  zipkin:
+    base-url: http://localhost:8075
