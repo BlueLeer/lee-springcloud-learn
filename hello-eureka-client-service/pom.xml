@@ -33,6 +33,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
+
+        <!--增加actuator监控模块,这样我们就能通过/actuator/info或者/actuator/health来访问eureka客户端的实例信息和健康信息-->
+        <!--通过添加该依赖,我们也就可以在注册中心中点击实例连接跳转到实例的info信息页面了-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
 

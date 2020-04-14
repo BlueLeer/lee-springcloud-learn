@@ -22,7 +22,7 @@ public class ServiceConsumerApplication {
 
 
     /**
-     * 一定要使用 @LoadBalanced 注解,不然通过服务名调用服务失败,报500错误
+     * 一定要使用 @LoadBalanced 注解,不然通过服务名调用服务失败,报500错误,why?
      * @return
      */
     @Bean
