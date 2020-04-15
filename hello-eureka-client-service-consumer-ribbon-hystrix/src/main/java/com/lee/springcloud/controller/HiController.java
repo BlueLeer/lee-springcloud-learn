@@ -28,6 +28,7 @@ public class HiController {
 
     @GetMapping(value = "/hi")
     public String hi() {
+        
         return hiService.hi();
     }
 

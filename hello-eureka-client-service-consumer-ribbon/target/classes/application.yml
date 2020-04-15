@@ -4,6 +4,8 @@ server:
 eureka:
   instance:
     hostname: localhost
+    metadata-map:
+      zone: chongqing # 当eureka和ribbon结合的时候,服务清单的维护将会变得非常方便,这里的ribbon的区域亲和的特性就可以通过eureka的实例配置进行配置
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/
@@ -12,3 +14,28 @@ spring:
     name: service-consumer
   zipkin:
     base-url: http://localhost:8075
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+
+logging:
+  level:
+    root: debug
+
+# ribbon的一些配置,如果找不到具体使用那些key,可以去com.netflix.client.config.DefaultClientConfigImpl或者CommonClientConfigKey下面去找
+# ribbon指定客户端配置,这里只针对eureka-client-service这个服务进行配置,配置了实例检查策略
+eureka-client-service:
+  ribbon:
+    NFLOADBALANCER_PING_CLASSNAME: com.netflix.loadbalancer.PingUrl
+    ConnectTimeout: 1
+
+ribbon:
+  ConnectTimeout: 250 # ribbon超时连接时间
+  eureka:
+    # 默认值为true;如果设置为false,将会禁用eureka对ribbon服务实例的维护实现,此时我们对于服务实例的维护就必须要指定服务实例在什么地方:
+    # eureka-client-service.ribbon.listOfServers=http://localhost:8081,http://localhost:8082
+    enabled: true
+    
+  

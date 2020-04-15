@@ -1,0 +1,5 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *  访问不到,这里开房所有的端点# 添加了actuator一栏以后,默认是health和info,其他的端点

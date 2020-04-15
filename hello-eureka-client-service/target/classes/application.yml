@@ -10,3 +10,14 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/ # 指定注册中心地址
+
+  instance:
+    status-page-url: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+management:
+  context-path: /hh
+  endpoints:
+    web:
+      exposure:
+        include: info,health
+      

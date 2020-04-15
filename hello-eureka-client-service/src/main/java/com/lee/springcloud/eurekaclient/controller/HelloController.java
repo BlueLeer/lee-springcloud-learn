@@ -1,12 +1,14 @@
 package com.lee.springcloud.eurekaclient.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author WangLe
@@ -23,7 +25,12 @@ public class HelloController {
 
     @RequestMapping(value = "/hi", method = RequestMethod.GET)
     public String hi() {
-        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        return String.format("hello，[%s:%s]为您提供服务!当前时间: %s", name, port, time);
+        // 随机阻塞一段时间(Hystrix的默认超时时间为2000毫秒)
+        try {
+            TimeUnit.SECONDS.sleep(new Random().nextInt(3000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return String.format("1111hello，[appName: %s,instanceId: %s]为您提供服务!", "appName", "instanceId");
     }
 }
