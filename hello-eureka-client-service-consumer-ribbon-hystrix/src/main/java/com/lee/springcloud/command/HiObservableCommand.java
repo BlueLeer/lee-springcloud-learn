@@ -1,4 +1,4 @@
-package com.lee.springcloud.service.impl.command;
+package com.lee.springcloud.command;
 
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixObservableCommand;

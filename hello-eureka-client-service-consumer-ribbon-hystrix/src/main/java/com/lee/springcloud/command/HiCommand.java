@@ -1,10 +1,7 @@
-package com.lee.springcloud.service.impl.command;
+package com.lee.springcloud.command;
 
 import com.netflix.hystrix.*;
-import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 /**

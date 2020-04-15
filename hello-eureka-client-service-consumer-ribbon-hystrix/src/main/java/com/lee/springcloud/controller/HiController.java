@@ -1,9 +1,8 @@
 package com.lee.springcloud.controller;
 
 import com.lee.springcloud.service.HiService;
-import com.lee.springcloud.service.impl.command.HiCommand;
-import com.lee.springcloud.service.impl.command.HiObservableCommand;
-import com.netflix.discovery.converters.Auto;
+import com.lee.springcloud.command.HiCommand;
+import com.lee.springcloud.command.HiObservableCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

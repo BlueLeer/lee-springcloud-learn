@@ -1,7 +1,6 @@
 package com.lee.springcloud.service.impl;
 
 import com.lee.springcloud.service.HiService;
-import com.lee.springcloud.service.impl.command.HiCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
 import org.springframework.beans.factory.annotation.Autowired;
