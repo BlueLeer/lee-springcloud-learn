@@ -24,7 +24,6 @@ public class CacheController {
 
     @GetMapping("/cache")
     public String cache(Long id) {
-        HystrixRequestContext context = HystrixRequestContext.initializeContext();
         String messageById = cacheService.getMessageById(new User(id,"zhangsan"));
         return messageById;
 

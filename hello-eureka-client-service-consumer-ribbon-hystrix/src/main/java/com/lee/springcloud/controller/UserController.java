@@ -20,4 +20,5 @@ public class UserController {
     public User user(@PathVariable("id") Long id) {
         return userService.findOne(id);
     }
+
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,25 +25,26 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 指定了请求合并器,并且指定了请求合并器的窗口为100毫秒
-     *
+     * 注意加上scope:com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL,不然会报空指针错误,原因还未知
      * @param id
      * @return
      */
-//    @Override
-//    @HystrixCollapser(batchMethod = "findAll", collapserProperties = {
-//            @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")
-//    })
-    @HystrixCommand
+    @Override
+    @HystrixCollapser(batchMethod = "findAll", collapserProperties = {
+            @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")}
+            ,scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL)
     public User findOne(Long id) {
-        User forObject = restTemplate.postForObject("http://eureka-client-service/user", id, User.class);
-        return forObject;
+        return null;
     }
 
     @HystrixCommand
     @Override
     public List<User> findAll(List<Long> ids) {
-        List<User> forObject = restTemplate.postForObject("http://eureka-client-service/users", ids, List.class);
-        return forObject;
+        // 这里使用数组接收,然后转换成列表,不然会报错
+        // 解决办法参考:https://blog.csdn.net/x7418520/article/details/89360124
+        // 参考:http://www.imooc.com/article/35116 (页面中搜索:LinkedHashMap)
+        User[] forObject = restTemplate.getForObject("http://eureka-client-service/users?ids={1}", User[].class, StringUtils.join(ids, ","));
+        return Arrays.asList(forObject);
     }
 
     public String hiError(Throwable throwable) {
