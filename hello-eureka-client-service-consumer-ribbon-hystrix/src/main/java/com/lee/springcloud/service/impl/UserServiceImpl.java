@@ -26,13 +26,14 @@ public class UserServiceImpl implements UserService {
     /**
      * 指定了请求合并器,并且指定了请求合并器的窗口为100毫秒
      * 注意加上scope:com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL,不然会报空指针错误,原因还未知
+     *
      * @param id
      * @return
      */
     @Override
     @HystrixCollapser(batchMethod = "findAll", collapserProperties = {
-            @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")}
-            ,scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL)
+            @HystrixProperty(name = "timerDelayInMilliseconds", value = "800")}
+            , scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL)
     public User findOne(Long id) {
         return null;
     }

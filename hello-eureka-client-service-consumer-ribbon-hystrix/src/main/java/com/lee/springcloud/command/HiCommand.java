@@ -2,6 +2,7 @@ package com.lee.springcloud.command;
 
 import com.netflix.hystrix.*;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -16,9 +17,13 @@ public class HiCommand extends HystrixCommand<String> {
     public HiCommand(RestTemplate restTemplate, Long keyId) {
         // 我们指定了命令的分组名称、命令名称、以及线程池名称
         // 如果这里不指定,则命令名称默认以类名作为命令名称
+        // 对请求命令属性的设置有2种方式:
+        // 1.继承的时候,可以使用Setter对象来对请求的命令的属性进行设置
+        // 2.使用注解的方式实现的时候,通过@HystrixCommand中的commandProperties属性进行设置(详见注解配置)
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("Lee-Group"))
                 .andCommandKey(HystrixCommandKey.Factory.asKey(HI_KEY))
-                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("Lee-Thread")));
+                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("Lee-Thread"))
+                .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(200)));
         this.template = restTemplate;
         this.keyId = keyId;
     }

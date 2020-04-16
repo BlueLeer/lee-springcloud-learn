@@ -3,6 +3,7 @@ package com.lee.springcloud.controller;
 import com.lee.springcloud.service.HiService;
 import com.lee.springcloud.command.HiCommand;
 import com.lee.springcloud.command.HiObservableCommand;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +47,8 @@ public class HiController {
 
     @GetMapping(value = "/hi3")
     public String hi3() {
+        // 使用命令开启缓存需要调用下:
+        HystrixRequestContext context = HystrixRequestContext.initializeContext();
         // execute是同步的方式执行的,它的底层还是通过 .queue().get()的方式获得结果的
         return new HiCommand(restTemplate, 100000L).execute();
     }

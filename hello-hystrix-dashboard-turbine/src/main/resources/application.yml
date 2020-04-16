@@ -1,0 +1,16 @@
+server:
+  port: 8098
+
+spring:
+  application:
+    name: hystrix-turbine
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
+turbine:
+  app-config: consumer-ribbon-hustrix
+  cluster-name-expression: default # 指定集群名称为default
+  combine-host-port: true

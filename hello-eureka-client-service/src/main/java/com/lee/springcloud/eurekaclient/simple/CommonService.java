@@ -1,18 +1,18 @@
-package com.lee.springcloud.service;
+package com.lee.springcloud.eurekaclient.simple;
 
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author WangLe
- * @date 2019/7/17 17:24
- * @description 通过 @FeignClient(value = "eureka-client-service") 指定服务的实例名,服务名不区分大小写
+ * Feign继承的特性
+ * 公共的类,开发的时候,它在服务提供者和服务消费者的公共依赖部分,这里为了方便,分别放在服务提供者和提供者里面,他们都是一样的
+ *
+ * @author lee
+ * @date 2020/4/16 16:22
  */
-@FeignClient(value = "eureka-client-service")
-public interface HiService {
-
+@RequestMapping("/simple")
+public interface CommonService {
     @RequestMapping(value = "/hi", method = RequestMethod.GET)
     String hi();
 

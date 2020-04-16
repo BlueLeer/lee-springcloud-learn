@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: hystrix-dashboard
+  zipkin:
+    base-url: http://localhost:8075
 
 eureka:
   client:

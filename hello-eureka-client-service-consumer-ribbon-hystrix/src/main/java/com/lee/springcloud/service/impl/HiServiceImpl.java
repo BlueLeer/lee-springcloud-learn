@@ -2,6 +2,7 @@ package com.lee.springcloud.service.impl;
 
 import com.lee.springcloud.service.HiService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,12 @@ public class HiServiceImpl implements HiService {
     private RestTemplate restTemplate;
 
     @Override
-    @HystrixCommand(fallbackMethod = "hiDefault")
+    @HystrixCommand(fallbackMethod = "hiDefault",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "5"), // 线程池核心线程大小
+                    @HystrixProperty(name = "maxQueueSize", value = "-1") // 线程池队列最大值,当为-1时,使用的是SynchronousQueue,否则使用LinkedBlockingQueue
+                    
+            })
     public String hi() {
         String uri = "http://eureka-client-service/hi";
         return restTemplate.getForEntity(uri, String.class).getBody();
@@ -69,10 +75,11 @@ public class HiServiceImpl implements HiService {
     /**
      * 指定了commandKey、groupKey、threadPoolKey。如果不指定ThreadPoolKey，那么相同的groupKey的命令会在同一个线程池中
      * 如果指定了ThreadPoolKey时，则相同的ThreadPoolKey的命令会在同一个线程池当中
+     *
      * @return
      */
     @Override
-    @HystrixCommand(fallbackMethod = "hiDefault",commandKey = "hi4",groupKey = "hi-group",threadPoolKey = "hi-thread")
+    @HystrixCommand(fallbackMethod = "hiDefault", commandKey = "hi4", groupKey = "hi-group", threadPoolKey = "hi-thread")
     public String hi4() {
         String uri = "http://eureka-client-service/hi";
         return restTemplate.getForEntity(uri, String.class).getBody();
