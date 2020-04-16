@@ -22,6 +22,12 @@ public class HiController {
         return hiService.hi();
     }
 
+    @GetMapping(value = "/hiPost")
+    @ResponseBody
+    public String hiPost() {
+        return hiService.hiPost();
+    }
+
     @GetMapping(value = "/hiFeign")
     @ResponseBody
     public String hiFeign(@RequestParam("name") String name) {

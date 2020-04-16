@@ -10,3 +10,34 @@ spring:
     name: hello-eureka-service-consumer-feign
   zipkin:
     base-url: http://localhost:8075
+
+ribbon:
+  ReadTimeout: 2000
+  ConnectTimeout: 2000
+  MaxAutoRetries: 1 # 同一台实例最大重试次数(不包括首次调用)
+  MaxAutoRetriesNextServer: 1 # 重试负载均衡的其他实例的最大次数(不包括首次调用),其实也就是说首次访问失败了,还能更换几个实例来重试,这里设置的是1,也就是说:最坏的情况下能访问2额实例(首次和更换后的)
+  OkToRetryOnAllOperations: false
+
+feign:
+  hystrix:
+    enabled: true # 开启feign客户端的Hystrix支持,默认是关闭的
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000 # 我们尝试将这里的熔断时间设置的比ribbon总的超时时间短一些
+
+
+#ribbon:
+#  ReadTimeout: 2000 # 当连接已经打通了的时候,如果2秒内还没有返回给ribbon客户端,就会触发重试,一般来说,读取超时设置的时间会比连接超时会长一些
+#  ConnectTimeout: 2000 # 当超过2秒以后,ribbon客户端还没有和服务提供方联通的时候,就会触发重试
+#  MaxAutoRetries: 1 # 同一台实例最大重试次数(不包括首次调用)
+#  MaxAutoRetriesNextServer: 1 # 重试负载均衡的其他实例的最大次数(不包括首次调用),其实也就是说首次访问失败了,还能更换几个实例来重试,这里设置的是1,也就是说:最坏的情况下能访问2额实例(首次和更换后的)
+#  OkToRetryOnAllOperations: false # 是否所有操作都进行重试,慎用;设置成false时,get请求依然会重试,直到超时时间过了还没有成功,就不会重试了
+# 1根据上面的配置,最坏的情况下(假设还没有触发Hystrix的熔断),一共会请求几次呢?
+# 答:四次,共切换了1次实例(MaxAutoRetriesNextServer控制),也就是说需要去请求2个实例,每个实例最多重试一次(MaxAutoRetries控制,加上首次的,每个实例一共是请求了2次)
+# 2.根据上面的配置,最坏情况下ribbon总的超时时间是多久?
+# 答:(connectTimeout+readTimeout) * [(MaxAutoRetries+1)*(MaxAutoRetriesNextServer+1)]
+#         每个连接耗费的时间                          最坏情况下总发起的连接数(包括首次访问的换实例以后的重试)
