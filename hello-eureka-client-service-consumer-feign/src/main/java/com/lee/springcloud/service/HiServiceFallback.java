@@ -2,7 +2,7 @@ package com.lee.springcloud.service;
 
 import org.springframework.stereotype.Component;
 
-/**
+/**HiService服务降级
  * @author lee
  * @date 2020/4/16 23:25
  */

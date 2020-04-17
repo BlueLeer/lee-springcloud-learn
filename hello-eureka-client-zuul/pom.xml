@@ -22,11 +22,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--将网关zuul也纳入Eureka的治理体系中来,因此需要引入eureka的相关依赖-->
+        <!--并且:我们知道,在路由网关的配置当中,配置了可以通过配置path和url之间的路由关系,但是,当一个服务有多个服务url的时候,这样维护起来是比较麻烦的,因此,这里通过引入eureka的相关依赖
+        并且将该zuul交给eureka来管理,我们就只需要配置path和serviceId之间的关系即可-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!--Zuul的依赖-->
+        <!--我们可以看到该依赖中引入了netflix-zuul、netflix-hystrix、netflix-ribbon、spring-boot-starter-actuator-->
+        <!--        hystrix依赖用于在网关服务中实现对微服务转发时候的保护机制，通过线程隔离和熔断器，防止微服务的故障引发API网关资源无法得到释放，从而影响网关自身的服务-->
+        <!--        ribbon依赖用来实现在网关服务进行路由转发时候的客户端负载均衡以及请求重试-->
+        <!--        actuator依赖用于提供常规的微服务管理端点，在zuul中还特意提供了、routes端点用来访问当前所有的路由规则-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>

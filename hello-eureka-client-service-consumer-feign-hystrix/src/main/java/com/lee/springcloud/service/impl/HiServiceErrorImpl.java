@@ -15,4 +15,9 @@ public class HiServiceErrorImpl implements HiService {
     public String hi() {
         return "出现一个错误!";
     }
+
+    @Override
+    public String hiFeign(String name) {
+        return "HiFeign调用失败了......";
+    }
 }

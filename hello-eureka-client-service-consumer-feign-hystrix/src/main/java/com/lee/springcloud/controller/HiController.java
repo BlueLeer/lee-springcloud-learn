@@ -21,4 +21,9 @@ public class HiController {
     public String hi() {
         return hiService.hi();
     }
+
+    @GetMapping(value = "/hiHystrix")
+    public String hiHystrix(String name) {
+        return hiService.hiFeign(name);
+    }
 }

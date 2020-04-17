@@ -21,6 +21,13 @@ ribbon:
 feign:
   hystrix:
     enabled: true # 开启feign客户端的Hystrix支持,默认是关闭的
+  compression: # 压缩
+    request:
+      enabled: true # 开启请求压缩,默认为false
+      mime-types: text/xml,application/xml,application/json # 指定压缩的请求数据类型,默认值也是这些
+      min-request-size: 2048 # 开启请求压缩的大小下限,只有超过了这个大小,请求才会被压缩,默认值就是2048
+    response:
+      enabled: true # 开启响应压缩,默认为false
 hystrix:
   command:
     default:
@@ -41,3 +48,6 @@ hystrix:
 # 2.根据上面的配置,最坏情况下ribbon总的超时时间是多久?
 # 答:(connectTimeout+readTimeout) * [(MaxAutoRetries+1)*(MaxAutoRetriesNextServer+1)]
 #         每个连接耗费的时间                          最坏情况下总发起的连接数(包括首次访问的换实例以后的重试)
+logging:
+  level:
+    com.lee.springcloud.service.HiService: debug # 开启HiService这个Feign客户端的日志级别为DEBUG

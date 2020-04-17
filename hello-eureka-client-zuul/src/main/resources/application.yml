@@ -3,7 +3,7 @@ spring:
     name: eureka-client-zuul
 
 server:
-  port: 8098
+  port: 5555
 eureka:
   client:
     service-url:
