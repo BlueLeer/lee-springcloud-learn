@@ -1,0 +1,24 @@
+# 不使用eureka维护的实例清单,使用ribbon自己维护的实例清单,这个时候需要
+# 启用这个配置的时候,需要把pom中的netflix-eureka依赖去掉,不然会触发eureka服务注册中心的默认配置
+spring:
+  application:
+    name: eureka-client-zuul-only
+
+server:
+  port: 5555
+ribbon:
+  eureka:
+    # 因为zuul.routes.<route>.serviceId指定了服务实例ID,
+    # 默认情况下zuul会根据服务发现机制来获取配置的服务(serviceId)对应的实例清单,因此这里将其配置为false,让它不适用服务发现机制去获取服务清单
+    enabled: false 
+
+zuul:
+  routes:
+    api-a:
+      path: /client/** # 说明:代表所有的/api/a/开头的所有的请求路径都进入到service-consumer这个服务当中去
+      serviceId: eureka-client-service
+      
+# 注意:这里需要根据上面的serviceId来手动指定服务清单
+eureka-client-service:
+  ribbon:
+    listOfServers: http://localhost:7090

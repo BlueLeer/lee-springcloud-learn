@@ -3,7 +3,13 @@ package com.lee.springcloud.controller;
 import com.lee.springcloud.service.HiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author WangLe
@@ -24,7 +30,8 @@ public class HiController {
 
     @GetMapping(value = "/hiPost")
     @ResponseBody
-    public String hiPost() {
+    public String hiPost(HttpServletRequest request, HttpServletResponse response) {
+  
         return hiService.hiPost();
     }
 
@@ -33,13 +40,12 @@ public class HiController {
     public String hiFeign(@RequestParam("name") String name) {
         return hiService.hiFeign(name);
     }
-    
+
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "hello";
     }
-    
-    
+
 
 }
 

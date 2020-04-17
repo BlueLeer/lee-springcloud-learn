@@ -18,9 +18,9 @@ import java.io.IOException;
  * @description
  */
 @Component
-public class SimpleFilter extends ZuulFilter {
+public class AccessFilter extends ZuulFilter {
 
-    public static final Logger logger = LoggerFactory.getLogger(SimpleFilter.class);
+    public static final Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
     /**
      * 配置过滤类型，有四种不同生命周期的过滤器类型
@@ -57,17 +57,17 @@ public class SimpleFilter extends ZuulFilter {
     @Override
     public boolean shouldFilter() {
         RequestContext currentContext = RequestContext.getCurrentContext();
-
+        
         String url = currentContext.getRequest().getRequestURL().toString();
         logger.info("#####请求的url为:" + url);
-        if (url.contains("/api/a/")) {
+        if (url.contains("/api/a/") || url.contains("/client")) {
             return false;
         }
         return true;
     }
 
     /**
-     * If this value is true then the response should be sent to the client
+     * if shouldFilter() is true, this method will be invoked
      *
      * @return
      * @throws ZuulException
